@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
+const SwaggerDocument = require("./swagger.json");
 
 dotenv.config();
 
@@ -16,6 +18,8 @@ app.use(
     optionsSuccessStatus: 204,
   })
 );
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(SwaggerDocument));
 
 require("./routes/index.js")(app);
 
