@@ -6,6 +6,8 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+
 app.use(
   cors({
     origin: "*",
@@ -15,7 +17,7 @@ app.use(
   })
 );
 
-require("./routes/index")(app);
+require("./routes/index.js")(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`server rodando na porta ${process.env.PORT}`);
