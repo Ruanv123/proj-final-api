@@ -50,14 +50,11 @@ exports.getID = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    /* req.body.password = bcrypt.hashSync(req.body.password, 10); */
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
     const user = await updateUser(Number(req.params.id), req.body);
     res.status(200).send(user);
   } catch (error) {
-    res
-      .status(400)
-      .send(error)
-      .json({ message: "Ocorreu um erro ao atualizar os dados!" });
+    res.status(400).json({ message: "Ocorreu um erro ao atualizar os dados!" });
   }
 };
 

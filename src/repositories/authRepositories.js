@@ -5,9 +5,6 @@ exports.getUser = async (email) => {
     where: {
       email,
     },
-    select: {
-      id: true,
-    },
   });
   return user;
 };
