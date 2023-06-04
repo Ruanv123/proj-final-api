@@ -15,6 +15,8 @@ app.use(
   })
 );
 
+require("./routes/index")(app);
+
 app.listen(process.env.PORT, () => {
   console.log(`server rodando na porta ${process.env.PORT}`);
 });
