@@ -9,6 +9,7 @@
     "/user": {
       "post": {
         "summary": "Criar novo usuário",
+        "tags": ["User"],
         "description": "Endpoint para criar um novo usuário",
         "parameters": [
           {
@@ -87,6 +88,7 @@
       },
       "get": {
         "summary": "Obter lista de usuários",
+        "tags": ["User"],
         "description": "Endpoint para obter a lista de usuários",
         "responses": {
           "200": {
@@ -100,6 +102,7 @@
     },
     "/user/:id": {
       "get": {
+        "tags": ["User"],
         "summary": "Obter usuário especifico",
         "description": "Endpoint para obter usuário especifico",
         "responses": {
@@ -113,6 +116,7 @@
       },
       "put": {
         "summary": "Editar usuário especifico",
+        "tags": ["User"],
         "description": "Endpoint para Editar usuário especifico",
         "responses": {
           "200": {
@@ -125,6 +129,7 @@
       },
       "delete": {
         "summary": "Deletar usuário",
+        "tags": ["User"],
         "description": "Endpoint para deletar usuário",
         "responses": {
           "200": {
@@ -136,13 +141,32 @@
         }
       }
     },
-    "/login": {
+    "/auth/login": {
       "post": {
+        "tags": ["Auth"],
         "summary": "Rota para autenticar usuario",
         "description": "rota que autentica usuario e retorna um token de autenticacao JWT",
         "responses": {
           "200": {
             "description": "envia o token"
+          },
+          "401": {
+            "description": "Usuario e/ou senha incorretos!"
+          },
+          "400": {
+            "description": "Erro ao fazer login"
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Rota para o refresh token",
+        "description": "rota que autentica o refresh token e retorna um token de autenticacao JWT",
+        "responses": {
+          "200": {
+            "description": "gerou o refresh token"
           },
           "401": {
             "description": "Usuario e/ou senha incorretos!"
