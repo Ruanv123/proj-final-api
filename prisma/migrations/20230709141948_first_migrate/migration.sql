@@ -7,6 +7,8 @@ CREATE TABLE `user` (
     `telefone` VARCHAR(191) NOT NULL,
     `avatar` VARCHAR(191) NULL,
     `desc` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `user_email_key`(`email`),
     PRIMARY KEY (`id`)

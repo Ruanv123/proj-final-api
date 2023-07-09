@@ -10,6 +10,8 @@ exports.createUser = async (data) => {
       email: true,
       password: true,
       telefone: true,
+      createdAt: true,
+      updatedAt: true
     },
   });
   return user;
@@ -26,6 +28,8 @@ exports.getUser = async () => {
       telefone: true,
       avatar: true,
       desc: true,
+      createdAt: true,
+      updatedAt: true
     },
   });
   return user;
@@ -45,6 +49,8 @@ exports.getUserId = async (id) => {
       telefone: true,
       avatar: true,
       desc: true,
+      createdAt: true,
+      updatedAt: true
     },
   });
   return user;
@@ -65,6 +71,8 @@ exports.updateUser = async (id, data) => {
       telefone: true,
       avatar: true,
       desc: true,
+      createdAt: true,
+      updatedAt: true
     },
   });
   return user;
